@@ -15,7 +15,7 @@ public class Main
         String enctypted_text = encryption(phrase, key);
         System.out.println(enctypted_text);
     }
-    public static final String alpha = "abcdefghiоklmnopqrstuvwxyz";
+    public static final String alpha = "abcdefghijklmnopqrstuvwxyz";
     private static String encryption(String phrase, int key)
     {
         phrase = phrase.toLowerCase();
