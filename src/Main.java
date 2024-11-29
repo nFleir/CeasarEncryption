@@ -11,13 +11,33 @@ public class Main
 
         System.out.println("Введите ключ");
         int key = scan.nextInt();
-    }
 
+        String enctypted_text = encryption(phrase, key);
+        System.out.println(enctypted_text);
+    }
+    public static final String alpha = "abcdefgjijklmnopqrstuvwxyz";
     private static String encryption(String phrase, int key)
     {
         phrase = phrase.toLowerCase();
+        StringBuilder encrypted_text = new StringBuilder();
 
+        for (int i = 0; i < phrase.length(); i++)
+        {
+            char current_char = phrase.charAt(i);
+            if (Character.isLetter(current_char))
+            {
+                int char_position = alpha.indexOf(current_char);
+                int key_val = (key + char_position) % 26;
+                char replace_val = alpha.charAt(key_val);
 
-        return "";
+                encrypted_text.append(replace_val);
+            }
+            else
+            {
+                encrypted_text.append(current_char);
+            }
+        }
+
+        return encrypted_text.toString();
     }
 }
